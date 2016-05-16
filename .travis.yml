@@ -1,0 +1,9 @@
+language: cpp
+compiler:
+- clang
+env:
+  matrix:
+    - RUN_OPTION="bubbleSort"
+    - RUN_OPTION="insertionSort"
+    - RUN_OPTION="selectionSort"
+    - RUN_OPTION="quickSort"
