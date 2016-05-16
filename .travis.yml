@@ -7,3 +7,4 @@ env:
     - RUN_OPTION="insertionSort"
     - RUN_OPTION="selectionSort"
     - RUN_OPTION="quickSort"
+script: ./compile.sh
