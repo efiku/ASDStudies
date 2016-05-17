@@ -12,11 +12,13 @@ using namespace std;
 ALG_TYPE_SIZE RandomNumber() { return ((std::rand() % ASD_ARRAY_SIZE) - (ASD_ARRAY_SIZE / 2)); }
 
 int main(int argc, char **argv) {
+
     ALG_TYPE_SIZE testedNumberArray[ASD_ARRAY_SIZE];
     for (ALG_TYPE_SIZE &element : testedNumberArray) {
         element = RandomNumber();
     }
     string argument = (string) argv[1];
+
     auto startTime = chrono::high_resolution_clock::now();
     if (argument == "bubbleSort")
         bubbleSort(testedNumberArray, ASD_ARRAY_SIZE);
