@@ -2,14 +2,8 @@
 // Created by efik on 07.05.16.
 //
 
+#include <algorithm>
 #include "algorytmy.h"
-
-
-void swap(ALG_TYPE_SIZE &first, ALG_TYPE_SIZE &second) {
-    auto temp(first);
-    first = second;
-    second = temp;
-}
 
 void bubbleSort(ALG_TYPE_SIZE *array, ALG_TYPE_SIZE size) {
     if (size == 0)
@@ -17,7 +11,7 @@ void bubbleSort(ALG_TYPE_SIZE *array, ALG_TYPE_SIZE size) {
     for (ALG_TYPE_SIZE index = 0; index < size - 1; ++index)
         for (ALG_TYPE_SIZE secondIndex = size - 1; secondIndex > index; --secondIndex)
             if (array[secondIndex - 1] > array[secondIndex])
-                swap(array[secondIndex - 1], array[secondIndex]);
+                std::swap(array[secondIndex - 1], array[secondIndex]);
 }
 
 void insertionSort(ALG_TYPE_SIZE *array, ALG_TYPE_SIZE size) {
@@ -46,7 +40,7 @@ void selectionSort(ALG_TYPE_SIZE *array, ALG_TYPE_SIZE size) {
                 array[minimalElement]) // jezeli znalezlismy mniejszy element zapisujemy jego indeks w max
                 minimalElement = secondIndex;
         }
-        swap(array[minimalElement], array[index]);
+        std::swap(array[minimalElement], array[index]);
     }
 }
 
@@ -89,7 +83,7 @@ void heapify(ALG_TYPE_SIZE *array, ALG_TYPE_SIZE heapSize, ALG_TYPE_SIZE node) {
 
     // If largest is not root
     if (largest != node) {
-        swap(array[node], array[largest]);
+        std::swap(array[node], array[largest]);
 
         // Recursively heapify the affected sub-tree
         heapify(array, heapSize, largest);
@@ -104,10 +98,18 @@ void heapSort(ALG_TYPE_SIZE *array, ALG_TYPE_SIZE size) {
     // One by one extract an element from heap
     for (ALG_TYPE_SIZE i = size - 1; i >= 0; i--) {
         // Move current root to end
-        swap(array[0], array[i]);
+        std::swap(array[0], array[i]);
 
         // call max heapify on the reduced heap
         heapify(array, i, 0);
     }
 }
 
+void shellSort(ALG_TYPE_SIZE *array, ALG_TYPE_SIZE size) {
+    for (ALG_TYPE_SIZE gap = size / 2; gap > 0; gap /= 2)
+        if (gap < size) {
+            for (ALG_TYPE_SIZE i = gap; i < size; ++i)
+                for (ALG_TYPE_SIZE j = i - gap; j >= 0 && array[j] > array[j + gap]; j -= gap)
+                    std::swap(array[j], array[j + gap]);
+        }
+}

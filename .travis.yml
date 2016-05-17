@@ -8,5 +8,6 @@ env:
     - RUN_OPTION="selectionSort"
     - RUN_OPTION="quickSort"
     - RUN_OPTION="heapSort"
+    - RUN_OPTION="shellSort"
 script:
   - make

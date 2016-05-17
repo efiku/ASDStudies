@@ -30,8 +30,10 @@ int main(int argc, char **argv) {
         quickSort(testedNumberArray, 0, ASD_ARRAY_SIZE);
     else if (argument == "heapSort")
         heapSort(testedNumberArray, ASD_ARRAY_SIZE);
+    else if (argument == "shellSort")
+        shellSort(testedNumberArray, ASD_ARRAY_SIZE);
     else
-        cout << "Usage: asd bubbleSort|insertionSort|selectionSort|quickSort|heapSort\n";
+        cout << "Usage: asd bubbleSort|insertionSort|selectionSort|quickSort|heapSort|shellSort\n";
 
 
     auto endTime = chrono::high_resolution_clock::now();
