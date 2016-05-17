@@ -4,6 +4,6 @@
 
 #ifndef ASD_CONSTANTS_H
 #define ASD_CONSTANTS_H
-const int ASD_ARRAY_SIZE = 50000;
+const int ASD_ARRAY_SIZE = 200;
 
 #endif //ASD_CONSTANTS_H
