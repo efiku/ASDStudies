@@ -1,29 +1,27 @@
 //
 // Created by efik on 16.05.16.
+// Copyright (c) 2016 Krzysztof Pazdur.
 //
 #include <iostream>
 #include <chrono>
-#include <vector>
 #include <algorithm>
 #include "../src/algorytmy.h"
 
 using namespace std;
 typedef unsigned long long u_longlong;
 
-void algorithmResolver(const string &sortOption, vector<ALG_TYPE_SIZE> &testedNumbersArray);
-void sortResolver(const string &sortOption, vector<ALG_TYPE_SIZE> &testedNumbersArray);
-void populateArray(const u_longlong &arraySize, vector<ALG_TYPE_SIZE> &testedNumbersArray);
+void algorithmResolver(string &sortOption, vector<ALG_TYPE_SIZE> &testedNumbersArray);
+
+void sortResolver(string &sortOption, vector<ALG_TYPE_SIZE> &testedNumbersArray);
+
+void populateArray(u_longlong &arraySize, vector<ALG_TYPE_SIZE> &testedNumbersArray);
+
 void programInfo();
+
+bool compare(ALG_TYPE_SIZE a, ALG_TYPE_SIZE b) { return a > b; }
 
 ALG_TYPE_SIZE RandomNumber(ALG_TYPE_SIZE &range) { return ((std::rand() % range) - (range / 2)); }
 
-
-/**
- *
- *
- *
- *
- */
 int main(int argc, char **argv) {
     if (argc == 1 || argc != 4) {
         programInfo();
@@ -46,17 +44,18 @@ int main(int argc, char **argv) {
     return EXIT_SUCCESS;
 }
 
-void populateArray(const u_longlong &arraySize, vector<ALG_TYPE_SIZE> &testedNumbersArray) {
-    for (ALG_TYPE_SIZE &element : testedNumbersArray) {
-        element = RandomNumber((ALG_TYPE_SIZE &) arraySize);
+// ---------------------------
+// Methods
+// ---------------------------
+void populateArray(u_longlong &arraySize, vector<ALG_TYPE_SIZE> &testedNumbersArray) {
+    for (ALG_TYPE_SIZE index = 0; index < testedNumbersArray.size(); index++) {
+        testedNumbersArray[index] = RandomNumber((ALG_TYPE_SIZE &) arraySize);
     }
 }
 
-void sortResolver(const string &sortOption, vector<ALG_TYPE_SIZE> &testedNumbersArray) {
+void sortResolver(string &sortOption, vector<ALG_TYPE_SIZE> &testedNumbersArray) {
     if (sortOption == "DESC") {
-        sort(testedNumbersArray.begin(), testedNumbersArray.end(), [](ALG_TYPE_SIZE a, ALG_TYPE_SIZE b) {
-            return a > b;
-        });
+        sort(testedNumbersArray.begin(), testedNumbersArray.end(), compare);
     } else if (sortOption == "ASC") {
         quickSort(testedNumbersArray, 0, testedNumbersArray.size());
     }
@@ -78,7 +77,7 @@ void programInfo() {
     cout << "- -: Don't sort \n\n";
 }
 
-void algorithmResolver(const string &sortOption, vector<ALG_TYPE_SIZE> &testedNumbersArray) {
+void algorithmResolver(string &sortOption, vector<ALG_TYPE_SIZE> &testedNumbersArray) {
     if (sortOption == "bubbleSort")
         bubbleSort(testedNumbersArray, testedNumbersArray.size());
     else if (sortOption == "insertionSort")

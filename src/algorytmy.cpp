@@ -34,7 +34,7 @@ void selectionSort(std::vector<ALG_TYPE_SIZE> &array, ALG_TYPE_SIZE size) {
     {
         minimalElement = index;
         for (ALG_TYPE_SIZE secondIndex = index + 1;
-             secondIndex < size; secondIndex++) // poszukujemy najmniejszego elementu poczawszy od i
+             secondIndex < size; secondIndex++) // poszukujemy najmniejszego
         {
             if (array[secondIndex] <
                 array[minimalElement]) // jezeli znalezlismy mniejszy element zapisujemy jego indeks w max
@@ -65,8 +65,6 @@ void quickSort(std::vector<ALG_TYPE_SIZE> &array, ALG_TYPE_SIZE leftElement, ALG
     if (rightElement > index) quickSort(array, index, rightElement);
 }
 
-// To heapify a subtree rooted with node i which is
-// an index in array[]. n is size of heap
 void heapify(std::vector<ALG_TYPE_SIZE> &array, ALG_TYPE_SIZE heapSize, ALG_TYPE_SIZE node) {
 
     ALG_TYPE_SIZE largest = node;

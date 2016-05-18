@@ -4,6 +4,7 @@
 
 #ifndef ASD_ALOGRYTMY_H
 #define ASD_ALOGRYTMY_H
+#include <vector>
 typedef long long ALG_TYPE_SIZE;
 void bubbleSort(std::vector<ALG_TYPE_SIZE> &array, ALG_TYPE_SIZE size);
 void insertionSort(std::vector<ALG_TYPE_SIZE> &array, ALG_TYPE_SIZE size);
