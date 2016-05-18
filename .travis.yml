@@ -3,11 +3,15 @@ compiler:
 - g++
 env:
   matrix:
-    - RUN_OPTION="bubbleSort"
-    - RUN_OPTION="insertionSort"
-    - RUN_OPTION="selectionSort"
-    - RUN_OPTION="quickSort"
-    - RUN_OPTION="heapSort"
-    - RUN_OPTION="shellSort"
+    - ARRAY_SIZE="5000" SORT_OPTION="DESC"
+    - ARRAY_SIZE="5000" SORT_OPTION="ASC"
+    - ARRAY_SIZE="5000" SORT_OPTION="NORMAL"
+before_script:
+  - make work
 script:
-  - make
+  - ./runTests.sh bubbleSort ${ARRAY_SIZE} ${SORT_OPTION}
+  - ./runTests.sh insertionSort ${ARRAY_SIZE} ${SORT_OPTION}
+  - ./runTests.sh selectionSort ${ARRAY_SIZE} ${SORT_OPTION}
+  - ./runTests.sh quickSort ${ARRAY_SIZE} ${SORT_OPTION}
+  - ./runTests.sh heapSort ${ARRAY_SIZE} ${SORT_OPTION}
+  - ./runTests.sh shellSort ${ARRAY_SIZE} ${SORT_OPTION}

@@ -5,7 +5,7 @@
 #include <algorithm>
 #include "algorytmy.h"
 
-void bubbleSort(ALG_TYPE_SIZE *array, ALG_TYPE_SIZE size) {
+void bubbleSort(std::vector<ALG_TYPE_SIZE> &array, ALG_TYPE_SIZE size) {
     if (size == 0)
         return;
     for (ALG_TYPE_SIZE index = 0; index < size - 1; ++index)
@@ -14,7 +14,7 @@ void bubbleSort(ALG_TYPE_SIZE *array, ALG_TYPE_SIZE size) {
                 std::swap(array[secondIndex - 1], array[secondIndex]);
 }
 
-void insertionSort(ALG_TYPE_SIZE *array, ALG_TYPE_SIZE size) {
+void insertionSort(std::vector<ALG_TYPE_SIZE> &array, ALG_TYPE_SIZE size) {
     ALG_TYPE_SIZE index, secondIndex, temp;
     for (index = 1; index < size; index++) {
         secondIndex = index;
@@ -27,7 +27,7 @@ void insertionSort(ALG_TYPE_SIZE *array, ALG_TYPE_SIZE size) {
     }
 }
 
-void selectionSort(ALG_TYPE_SIZE *array, ALG_TYPE_SIZE size) {
+void selectionSort(std::vector<ALG_TYPE_SIZE> &array, ALG_TYPE_SIZE size) {
     ALG_TYPE_SIZE minimalElement;
 
     for (ALG_TYPE_SIZE index = 0; index < size; index++) // zaczynamy od pierwszego elementu i konczymy na ostatnim
@@ -45,7 +45,7 @@ void selectionSort(ALG_TYPE_SIZE *array, ALG_TYPE_SIZE size) {
 }
 
 
-void quickSort(ALG_TYPE_SIZE *array, ALG_TYPE_SIZE leftElement, ALG_TYPE_SIZE rightElement) {
+void quickSort(std::vector<ALG_TYPE_SIZE> &array, ALG_TYPE_SIZE leftElement, ALG_TYPE_SIZE rightElement) {
     ALG_TYPE_SIZE
             index = leftElement,
             secondIndex = rightElement,
@@ -67,7 +67,7 @@ void quickSort(ALG_TYPE_SIZE *array, ALG_TYPE_SIZE leftElement, ALG_TYPE_SIZE ri
 
 // To heapify a subtree rooted with node i which is
 // an index in array[]. n is size of heap
-void heapify(ALG_TYPE_SIZE *array, ALG_TYPE_SIZE heapSize, ALG_TYPE_SIZE node) {
+void heapify(std::vector<ALG_TYPE_SIZE> &array, ALG_TYPE_SIZE heapSize, ALG_TYPE_SIZE node) {
 
     ALG_TYPE_SIZE largest = node;
     ALG_TYPE_SIZE left = 2 * node + 1;
@@ -90,7 +90,7 @@ void heapify(ALG_TYPE_SIZE *array, ALG_TYPE_SIZE heapSize, ALG_TYPE_SIZE node) {
     }
 }
 
-void heapSort(ALG_TYPE_SIZE *array, ALG_TYPE_SIZE size) {
+void heapSort(std::vector<ALG_TYPE_SIZE> &array, ALG_TYPE_SIZE size) {
     // Build heap (rearrange array)
     for (ALG_TYPE_SIZE i = size / 2 - 1; i >= 0; i--)
         heapify(array, size, i);
@@ -105,7 +105,7 @@ void heapSort(ALG_TYPE_SIZE *array, ALG_TYPE_SIZE size) {
     }
 }
 
-void shellSort(ALG_TYPE_SIZE *array, ALG_TYPE_SIZE size) {
+void shellSort(std::vector<ALG_TYPE_SIZE> &array, ALG_TYPE_SIZE size) {
     for (ALG_TYPE_SIZE gap = size / 2; gap > 0; gap /= 2)
         if (gap < size) {
             for (ALG_TYPE_SIZE i = gap; i < size; ++i)

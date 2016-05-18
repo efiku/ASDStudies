@@ -3,5 +3,5 @@ project(asd)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
-set(SOURCE_FILES tests/rangeTest.cpp src/algorytmy.h src/algorytmy.cpp src/algorytmy.cpp src/algorytmy.h src/constants.h)
+set(SOURCE_FILES main/main.cpp src/algorytmy.h src/algorytmy.cpp src/algorytmy.cpp src/algorytmy.h)
 add_executable(asd ${SOURCE_FILES})
