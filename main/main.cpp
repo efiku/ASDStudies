@@ -74,7 +74,7 @@ void programInfo() {
     cout << "SORT OPTION: \n";
     cout << "- ASC: Sort your data from low to high \n";
     cout << "- DESC: From hight to low \n";
-    cout << "- -: Don't sort \n\n";
+    cout << "- -: Don't sort \n Example: ./asd 30000 N\n\n";
 }
 
 void algorithmResolver(string &sortOption, vector<ALG_TYPE_SIZE> &testedNumbersArray) {

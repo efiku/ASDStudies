@@ -1,29 +1,11 @@
 #!/usr/bin/env bash
-ARRAY_SIZE=5000
+ARRAY_SIZE=15000
+SORT_OPTION="NORMAL"
+echo ${SORT_OPTION}
+./runTests.sh ${ARRAY_SIZE} ${SORT_OPTION}
 SORT_OPTION="DESC"
-echo "=============================================="
-./runTests.sh bubbleSort ${ARRAY_SIZE} ${SORT_OPTION}
-./runTests.sh insertionSort ${ARRAY_SIZE} ${SORT_OPTION}
-./runTests.sh selectionSort ${ARRAY_SIZE} ${SORT_OPTION}
-./runTests.sh quickSort ${ARRAY_SIZE} ${SORT_OPTION}
-./runTests.sh heapSort ${ARRAY_SIZE} ${SORT_OPTION}
-./runTests.sh shellSort ${ARRAY_SIZE} ${SORT_OPTION}
-echo "==============================================="
+echo ${SORT_OPTION}
+./runTests.sh ${ARRAY_SIZE} ${SORT_OPTION}
 SORT_OPTION="ASC"
-echo "=============================================="
-./runTests.sh bubbleSort ${ARRAY_SIZE} ${SORT_OPTION}
-./runTests.sh insertionSort ${ARRAY_SIZE} ${SORT_OPTION}
-./runTests.sh selectionSort ${ARRAY_SIZE} ${SORT_OPTION}
-./runTests.sh quickSort ${ARRAY_SIZE} ${SORT_OPTION}
-./runTests.sh heapSort ${ARRAY_SIZE} ${SORT_OPTION}
-./runTests.sh shellSort ${ARRAY_SIZE} ${SORT_OPTION}
-echo "==============================================="
-SORT_OPTION="N"
-echo "=============================================="
-./runTests.sh bubbleSort ${ARRAY_SIZE} ${SORT_OPTION}
-./runTests.sh insertionSort ${ARRAY_SIZE} ${SORT_OPTION}
-./runTests.sh selectionSort ${ARRAY_SIZE} ${SORT_OPTION}
-./runTests.sh quickSort ${ARRAY_SIZE} ${SORT_OPTION}
-./runTests.sh heapSort ${ARRAY_SIZE} ${SORT_OPTION}
-./runTests.sh shellSort ${ARRAY_SIZE} ${SORT_OPTION}
-echo "==============================================="
+echo ${SORT_OPTION}
+./runTests.sh ${ARRAY_SIZE} ${SORT_OPTION}
